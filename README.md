@@ -6,15 +6,15 @@ Using AWS Textrac SDK for Node this script reads the image files from the folder
 
 To install just type:
 
-´´´´bash
+```bash
 npm install
-´´´´
+```
 
 And to run type:
 
-´´´´bash
+```bash
 node index.js
-´´´´
+```
 
 You will be prompted with the info with every image loading by Texttrac and the JSON response
 
