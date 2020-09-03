@@ -38,7 +38,6 @@ const blockDateAnalyzer = (err, data) => {
     blocks = blocks.filter(blockDateFilterFunction);
     blocks = blocks.map(blockDateMapperFunction);
     console.log(blocks);
-
 };
 
 var index = 0;
@@ -48,14 +47,14 @@ const fileExtraction = files => {
     var f = getNextFile(files);
     console.log("fileExtraction(", f, ")");
 
-    var params = getParams(Buffer.from(fs.readFileSync(dirname + f)));
+    var params=getParams(Buffer.from(fs.readFileSync(dirname + f)));
     textract.analyzeDocument(params, (err, data) => {
         if (err) return console.error(err, err.stack);
         var blocks = data.Blocks;
         blocks = blocks.filter(blockDateFilterFunction);
         blocks = blocks.map(blockDateMapperFunction);
         console.log(blocks);
-        if (index == arrlen - 1) {
+        if (index==arrlen - 1) {
             clearInterval(interval);
         }
 
@@ -66,10 +65,10 @@ function getNextFile(farr) {
     return farr[index++];
 }
 fs.readdir(__dirname + '/tickets/', (err, files) => {
-    files = files.filter(fileImageFilterFunction);
-    arrlen = files.length;
+    files=files.filter(fileImageFilterFunction);
+    arrlen=files.length;
 
-    interval = setInterval(fileExtraction, 5000, files);
+    interval=setInterval(fileExtraction, 5000, files);
 
     //fileExtraction(files[index]);
     //files.forEach(fileExtraction);
